@@ -6,6 +6,7 @@ const LoginRegister = () => {
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
   const [contraseña, setContraseña] = useState('');
+  const [animationClass, setAnimationClass] = useState('fade-in'); // Añadir clase de animación
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,10 +42,18 @@ const LoginRegister = () => {
     }
   };
 
+  const handleToggleForm = () => {
+    setAnimationClass('fade-out'); // Establecer clase de animación para el cambio
+    setTimeout(() => {
+      setIsRegistering(!isRegistering);
+      setAnimationClass('fade-in'); // Restablecer a la animación de entrada
+    }, 500); // Esperar que se complete la animación de salida antes de cambiar el estado
+  };
+
   return (
-    <div className="container-form">
+    <div className={`container-form ${animationClass}`}>
       {/* Panel izquierdo */}
-      <div className="information">
+      <div className={`information ${animationClass}`}>
         <div className="info-childs">
           <img src="/HomePage/Img/LogoInnVateBg.png" alt="Logo" />
           <h2>IonSpark</h2>
@@ -56,13 +65,13 @@ const LoginRegister = () => {
           <input
             type="button"
             value={isRegistering ? 'Inicia Sesión' : 'Regístrate'}
-            onClick={() => setIsRegistering(!isRegistering)}
+            onClick={handleToggleForm} // Cambiar el formulario
           />
         </div>
       </div>
 
       {/* Panel derecho */}
-      <div className="form-information">
+      <div className={`form-information ${animationClass}`}>
         <div className="form-information-childs">
           <h2>{isRegistering ? 'Crea tu Cuenta Ahora' : 'Iniciar Sesión'}</h2>
           <p>{isRegistering ? 'Utiliza un email para registrarte' : 'Inicia sesión con una cuenta'}</p>
