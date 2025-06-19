@@ -217,5 +217,62 @@ body::before {
         border-bottom-left-radius: 20px;
     }
 }
- 
- 
+
+/* Animaciones */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* Definir las animaciones */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Estilo para el contenedor de formulario */
+.container-form {
+  display: flex;
+  justify-content: space-between;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.container-form .information, .container-form .form-information {
+  width: 50%;
+}
+
+.container-form .form-information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-information.fade-in .form-information-childs,
+.information.fade-in .info-childs {
+  opacity: 1;
+}
+
+.form-information.fade-out .form-information-childs,
+.information.fade-out .info-childs {
+  opacity: 0;
+}
