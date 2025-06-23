@@ -1,0 +1,72 @@
+.solutions-section {
+  background-color: #0B1B2B;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.solution-card {
+  background-color: #153351;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 300px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.card-title.solar {
+  color: #9DCD66;
+}
+
+.card-title.wind {
+  color: #9DCD66;
+}
+
+.card-title.hydraulic {
+  color: #9DCD66;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+  text-align: justify;
+}
