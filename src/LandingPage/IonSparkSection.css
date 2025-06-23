@@ -1,0 +1,80 @@
+.ionspark-section {
+  background-color: #153351;
+  color: #ffffff;
+  padding: 80px 60px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ionspark-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Logo y título */
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 100px;
+}
+
+.brand-text h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #9DCD66;
+  margin: 4px 0 0;
+}
+
+/* Redes + enlaces alineados horizontalmente */
+.middle-block {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 30px;
+}
+
+.middle-inner {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+/* Redes sociales */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #9DCD66;
+  font-size: 20px;
+}
+
+/* Menú de navegación */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+/* Mapa */
+.map-block .mapa {
+  width: 280px;
+  max-width: 100%;
+}
