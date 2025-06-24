@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Historial from "./Historial/Historial.jsx"
 
 function App() {
   return (
