@@ -1,0 +1,31 @@
+.carrusel-container {
+  padding: 2rem;
+  background-color: #9DCD66;
+  text-align: center;
+}
+
+.carrusel-title {
+  font-size: 2.0rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  color: #0B1B2B;
+}
+
+.logo-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.logo-slide img {
+  max-width: 80%;
+  height: auto;
+}
+
+.logo-slide:hover {
+  filter: grayscale(0%);
+}

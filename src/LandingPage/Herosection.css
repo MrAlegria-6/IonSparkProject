@@ -1,0 +1,108 @@
+.hero-container {
+  background-image: url('../LandingPage/Landingassets/background.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-with-text {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 80px;
+  margin-right: 0.6rem;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-main {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-sub {
+  font-size: 0.9rem;
+  color: #a2d55c;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+
+
+.cta-button {
+  background-color: #a2d55c;
+  border: none;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+   margin-left: 999px;
+}
+
+.cta-button:hover {
+  background-color: #8dc34a;
+}
+
+.caption-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap; /* Para que en móvil no se rompa */
+  max-width: 90%;
+  margin: 1rem 0 2rem 0;
+}
+
+.hero-caption {
+  font-size: 1rem;
+  color: #f0f0f0;
+  flex: 1; /* Ocupa el espacio disponible */
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cta-button {
+  white-space: nowrap; /* Evita que el botón se parta en dos líneas */
+}
