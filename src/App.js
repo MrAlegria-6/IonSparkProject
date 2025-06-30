@@ -5,7 +5,11 @@ import LandingPage from './LandingPage/Page.js'
 
 function App() {
   return (
-    <LandingPage/>
+    <div className="App">
+      <main>
+        <LandingPage/>
+      </main>
+    </div>
   );
 }
 
