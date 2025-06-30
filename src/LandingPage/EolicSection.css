@@ -11,17 +11,18 @@
 /* Imagen flotante */
 .eolic-floater {
   position: absolute;
-  top: 30%;              /* Cambiá este valor para moverla arriba o abajo */
+  top: 35%;              /* Cambiá este valor para moverla arriba o abajo */
   right: 9%;            /* Cambiá este valor para moverla más a la derecha o izquierda */
   transform: translate(20%, -45%); /* Ajustes finos de desplazamiento */
   z-index: 3;
   pointer-events: none;
+  opacity: 0.45;
 }
 
 
 .eolic-floating-image {
-  max-height: 700px;
-  width: auto;
+ width: 550px;       /* Cambia el ancho */
+  height: auto;
   mix-blend-mode: lighten;
   opacity: 0.85;
 }
@@ -71,6 +72,7 @@
   display: flex;
   flex: 1 1 0;
   min-width: 280px;
+  z-index: 3;
 }
 
 .line {

@@ -6,11 +6,11 @@ import './Carrusel.css';
 
 const Carrusel = () => {
   const logos = [
-  '/Logo1.png',
-  '/Logo2.png',
-  '/Logo3.png',
-  '/Logo4.png',
-];
+    '/Logo1.png',
+    '/Logo2.png',
+    '/Logo3.png',
+    '/Logo4.png',
+  ];
 
   const settings = {
     dots: false,
@@ -39,7 +39,9 @@ const Carrusel = () => {
       <Slider {...settings}>
         {logos.map((src, index) => (
           <div key={index} className="logo-slide">
-            <img src={src} alt={`Logo ${index + 1}`} />
+            <div className="logo-card">
+              <img src={src} alt={`Logo ${index + 1}`} />
+            </div>
           </div>
         ))}
       </Slider>
