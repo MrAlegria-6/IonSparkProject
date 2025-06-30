@@ -1,15 +1,15 @@
 .ionspark-section {
   background-color: #153351;
   color: #ffffff;
-  padding: 80px 60px;
+  padding: 60px;
   font-family: 'Segoe UI', sans-serif;
 }
 
-.ionspark-container {
+.ionspark-horizontal {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  gap: 60px;
+  justify-content: center;
+  gap: 100px;
   flex-wrap: wrap;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .logo {
-  width: 100px;
+  width: 90px;
 }
 
 .brand-text h1 {
@@ -35,46 +35,77 @@
   margin: 4px 0 0;
 }
 
-/* Redes + enlaces alineados horizontalmente */
-.middle-block {
-  display: flex;
-  align-items: flex-start;
-  padding-top: 30px;
-}
-
-.middle-inner {
-  display: flex;
-  gap: 50px;
-  align-items: flex-start;
-}
-
 /* Redes sociales */
 .social-links {
   display: flex;
   flex-direction: column;
   gap: 12px;
   font-size: 18px;
+  color: #9DCD66;
 }
 
 .social-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #9DCD66;
   font-size: 20px;
+  transition: color 0.3s;
 }
 
-/* Menú de navegación */
+.social-row:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Menú de navegación en dos columnas */
+.middle-block {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  justify-content: center;
+}
+
 .nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
   font-size: 20px;
   line-height: 1.8;
+  min-width: 150px;
 }
 
-/* Mapa */
-.map-block .mapa {
-  width: 280px;
-  max-width: 100%;
+.nav-links li {
+  transition: color 0.3s;
+}
+
+.nav-links li:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ionspark-horizontal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .brand-block {
+    flex-direction: column;
+  }
+
+  .social-links {
+    align-items: center;
+  }
+
+  .middle-block {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    text-align: center;
+  }
 }

@@ -14,7 +14,7 @@
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #9DCD66;
-  box-shadow: 0 0 20px #9DCD66;
+  box-shadow: 0 0 20px #0B1B2B;
 }
 
 .image-wrapper img {
@@ -30,7 +30,7 @@
   border-radius: 10px;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 0 25px #9DCD66;
+  box-shadow: 0 0 25px #0B1B2B;
   color: white;
   display: flex;
   flex-direction: column;
