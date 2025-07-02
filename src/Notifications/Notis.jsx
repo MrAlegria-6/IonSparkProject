@@ -1,8 +1,38 @@
 import React from 'react';
-import { BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe } from 'lucide-react';
+import {
+  BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe
+} from 'lucide-react';
 import '../UserDashboard/Dashboard.css';
+import './Notis.css'
 
 const Dashboard = () => {
+  const cards = [
+    {
+      id: 1,
+      title: 'Programme that pushes boundaries',
+      description: 'Personalised medicine initiative by Sarrah.',
+      image: 'https://i.pravatar.cc/150?img=10',
+    },
+    {
+      id: 2,
+      title: 'Focus group on genetic tests',
+      description: 'Discussion group led by Mariem.',
+      image: 'https://i.pravatar.cc/150?img=12',
+    },
+    {
+      id: 3,
+      title: 'New opportunities in e-health',
+      description: 'Michelangelo shares new trends in health tech.',
+      image: 'https://i.pravatar.cc/150?img=14',
+    },
+    {
+      id: 4,
+      title: 'How patients perceive NGS',
+      description: 'Insights gathered by Raffaello.',
+      image: 'https://i.pravatar.cc/150?img=16',
+    },
+  ];
+
   return (
     <div className="dashboard">
       {/* Header */}
@@ -76,10 +106,22 @@ const Dashboard = () => {
           </div>
         </aside>
 
-        {/* Content placeholder */}
+        {/* Content */}
         <main className="main-content">
           <div className="placeholder">
-            {/* Aquí puedes insertar lo que quieras más adelante */}
+            <div className="card-list" style={{ padding: '20px' }}>
+
+              {cards.map((card) => (
+              <div key={card.id} className="notis-card">
+                <img src={card.image} alt="avatar" className="notis-avatar" />
+                <div className="notis-card-content">
+                  <h3 className="notis-title">{card.title}</h3>
+                  <p className="notis-description">{card.description}</p>
+                </div>
+              </div>
+            ))}
+            
+            </div>
           </div>
         </main>
       </div>
