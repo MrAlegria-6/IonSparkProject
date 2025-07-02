@@ -1,12 +1,14 @@
-
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Search, Globe } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell} from 'recharts';
+import {BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe} from 'lucide-react';
 import './Dashboard.css';
 
+
 const Dashboard = () => {
-  // Sample data for the line chart
-  const lineData = [
+  const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
+  const [lineData, setLineData] = useState([
     { name: '10', value: 20 },
     { name: '20', value: 35 },
     { name: '30', value: 25 },
@@ -17,9 +19,8 @@ const Dashboard = () => {
     { name: '80', value: 65 },
     { name: '90', value: 50 },
     { name: '100', value: 70 },
-  ];
+  ]);
 
-  // Sample data for pie chart
   const pieData = [
     { name: 'Completed', value: 85, color: '#10B981' },
     { name: 'Remaining', value: 15, color: '#374151' }
@@ -30,6 +31,30 @@ const Dashboard = () => {
     "Project Name Data Analytics - Show More Data Text",
     "Project Name Data Analytics - Show More Text"
   ];
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Acceso denegado. Por favor inicia sesión.');
+      navigate('/');
+    } else {
+      // Obtener posts protegidos
+      fetch('http://127.0.0.1:8000/posts/', {
+        headers: {
+          Authorization: `Token ${token}`
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          setPosts(data);
+          // Puedes usar los datos si quieres actualizar la gráfica también
+          console.log('Datos recibidos:', data);
+        })
+        .catch(err => {
+          console.error('Error al obtener datos:', err);
+        });
+    }
+  }, [navigate]);
 
   return (
     <div className="dashboard">
@@ -95,7 +120,10 @@ const Dashboard = () => {
             </div>
 
             <div className="logout-section">
-              <div className="menu-item">
+              <div className="menu-item" onClick={() => {
+                localStorage.removeItem('token');
+                navigate('/');
+              }}>
                 <LogOut size={20} />
                 <span>Logout</span>
               </div>
@@ -115,17 +143,17 @@ const Dashboard = () => {
             <div className="chart-wrapper">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={lineData}>
-                  <XAxis 
-                    dataKey="name" 
+                  <XAxis
+                    dataKey="name"
                     axisLine={false}
                     tickLine={false}
                     tick={{ fill: '#94a3b8', fontSize: 12 }}
                   />
                   <YAxis hide />
-                  <Line 
-                    type="monotone" 
-                    dataKey="value" 
-                    stroke="#10B981" 
+                  <Line
+                    type="monotone"
+                    dataKey="value"
+                    stroke="#10B981"
                     strokeWidth={3}
                     dot={{ fill: '#10B981', strokeWidth: 2, r: 4 }}
                     activeDot={{ r: 6, fill: '#10B981' }}
@@ -137,7 +165,6 @@ const Dashboard = () => {
 
           {/* Stats Cards */}
           <div className="stats-grid">
-            {/* Pie Chart Card */}
             <div className="stat-card">
               <h3 className="card-title">Overview</h3>
               <div className="pie-chart-container">
@@ -167,13 +194,11 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Performance Card */}
             <div className="stat-card">
               <div className="stat-value primary">85%</div>
               <div className="stat-label">Performance</div>
             </div>
 
-            {/* Success Rate Card */}
             <div className="stat-card">
               <div className="stat-value secondary">31%</div>
               <div className="stat-label">Success Rate</div>
@@ -190,6 +215,12 @@ const Dashboard = () => {
               {historialItems.map((item, index) => (
                 <div key={index} className="historial-item">
                   {item}
+                </div>
+              ))}
+              {/* Mostrar posts reales (opcional) */}
+              {posts.map((post, i) => (
+                <div key={i} className="historial-item">
+
                 </div>
               ))}
             </div>
