@@ -95,7 +95,7 @@ const Dashboard = () => {
               </div>
               <div className="menu-item">
                 <Shield size={20} />
-                <span>Network</span>
+                <span>Plans</span>
               </div>
               <div className="menu-item">
                 <Bell size={20} />
@@ -104,18 +104,6 @@ const Dashboard = () => {
               <div className="menu-item">
                 <Settings size={20} />
                 <span>Settings</span>
-              </div>
-            </div>
-
-            <div className="help-section">
-              <h3 className="section-title">Help & Support</h3>
-              <div className="menu-item">
-                <HelpCircle size={20} />
-                <span>Help</span>
-              </div>
-              <div className="menu-item">
-                <Settings size={20} />
-                <span>Services</span>
               </div>
             </div>
 
