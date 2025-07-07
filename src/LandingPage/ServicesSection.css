@@ -32,14 +32,14 @@
 }
 
 .service-card h3 {
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 15px;
   color: #9DCD66 ;
 }
 
 .service-card p {
-  font-size: 16px;
+  font-size: 1.2rem;
   line-height: 1.6;
   color: #ccc;
 }
