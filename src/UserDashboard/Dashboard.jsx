@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell} from 'recharts';
 import {BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe} from 'lucide-react';
+import IonSparkSection from '../LandingPage/IonSparkSection';
+
 import './Dashboard.css';
 
 
@@ -68,14 +70,6 @@ const Dashboard = () => {
               </div>
               <span className="logo-text">IonSpark</span>
             </div>
-          </div>
-          <div className="header-right">
-            <nav className="nav">
-              <a href="#" className="nav-link active">Home</a>
-              <a href="#" className="nav-link">Dashboard</a>
-              <a href="#" className="nav-link">Results</a>
-              <a href="#" className="nav-link">Contact</a>
-            </nav>
           </div>
         </div>
       </header>
@@ -230,26 +224,7 @@ const Dashboard = () => {
           </div>
         </main>
       </div>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-left">
-            <div className="footer-logo">
-              <div className="footer-logo-icon">
-                <Globe size={16} />
-              </div>
-              <span>IonSpark</span>
-            </div>
-          </div>
-          <div className="footer-right">
-            <div>Contact Us</div>
-            <div>About us</div>
-            <div>Privacy Policy</div>
-            <div>About us</div>
-          </div>
-        </div>
-      </footer>
+      <IonSparkSection />
     </div>
   );
 };
