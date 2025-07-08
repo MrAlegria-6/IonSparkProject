@@ -1,35 +1,39 @@
 import React from 'react';
 import {
-  BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe
-} from 'lucide-react';
+  BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe, Sun, Wind, Thermometer
+} from 'lucide-react';  // Agregar íconos relacionados con energías renovables
 import '../UserDashboard/Dashboard.css';
-import './Notis.css'
+import './Notis.css';
 
 const Dashboard = () => {
-  const cards = [
+  const notificaciones = [
     {
       id: 1,
-      title: 'Programme that pushes boundaries',
-      description: 'Personalised medicine initiative by Sarrah.',
-      image: 'https://i.pravatar.cc/150?img=10',
+      title: 'Análisis de terreno completado',
+      description: 'El análisis del terreno en San Juan opico ha concluido. Se recomienda la integración de energía solar.',
+      image: 'logo.svg',
+      icon: <Sun size={24} color="#FFEB3B" />  // Icono de energía solar
     },
     {
       id: 2,
-      title: 'Focus group on genetic tests',
-      description: 'Discussion group led by Mariem.',
-      image: 'https://i.pravatar.cc/150?img=12',
+      title: 'Potencial para energía eólica',
+      description: 'El terreno en Colonia Tecpan presenta condiciones favorables para instalar un parque eólico.',
+      image: 'logo.svg',
+      icon: <Wind size={24} color="#4CAF50" />  // Icono de energía eólica
     },
     {
       id: 3,
-      title: 'New opportunities in e-health',
-      description: 'Michelangelo shares new trends in health tech.',
-      image: 'https://i.pravatar.cc/150?img=14',
+      title: 'Recomendación: Instalación geotérmica',
+      description: 'El análisis geotérmico sugiere que se puede integrar energía geotérmica en el área de [Ubicación].',
+      image: 'logo.svg',
+      icon: <Thermometer size={24} color="#FF7043" />  // Icono de energía geotérmica
     },
     {
       id: 4,
-      title: 'How patients perceive NGS',
-      description: 'Insights gathered by Raffaello.',
-      image: 'https://i.pravatar.cc/150?img=16',
+      title: 'Verificación de viabilidad',
+      description: 'El terreno en colonia Villa Tzuchi ha sido verificado como apto para la integración de energía renovable.',
+      image: 'logo.svg',
+      icon: <Sun size={24} color="#FFEB3B" />  // Otro ícono de energía solar para coherencia
     },
   ];
 
@@ -110,17 +114,18 @@ const Dashboard = () => {
         <main className="main-content">
           <div className="placeholder">
             <div className="card-list" style={{ padding: '20px' }}>
-
-              {cards.map((card) => (
-              <div key={card.id} className="notis-card">
-                <img src={card.image} alt="avatar" className="notis-avatar" />
-                <div className="notis-card-content">
-                  <h3 className="notis-title">{card.title}</h3>
-                  <p className="notis-description">{card.description}</p>
+              {notificaciones.map((notificacion) => (
+                <div key={notificacion.id} className="notis-card">
+                  <img src={notificacion.image} alt="avatar" className="notis-avatar" />
+                  <div className="notis-card-content">
+                    <div className="notis-icon">
+                      {notificacion.icon}  {/* Agregar el ícono correspondiente */}
+                    </div>
+                    <h3 className="notis-title">{notificacion.title}</h3>
+                    <p className="notis-description">{notificacion.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-            
+              ))}
             </div>
           </div>
         </main>

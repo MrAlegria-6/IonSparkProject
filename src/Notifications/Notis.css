@@ -3,15 +3,21 @@
 }
 
 .notis-card {
-  background: #fff;
+  background: ##777;;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notis-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .notis-avatar {
@@ -25,10 +31,38 @@
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 4px;
-  color: #000000
 }
 
 .notis-card-content p {
   font-size: 14px;
   color: #555;
+}
+
+.notis-card-content {
+  flex-grow: 1;
+}
+
+.notis-card-content .notis-description {
+  color: #777;
+}
+
+.notis-card-content .notis-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.notis-card-content .notis-description {
+  font-size: 14px;
+  color: #616161;
+}
+
+.notis-card .icon-renewable {
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+.notis-card-content .notis-icon {
+  font-size: 20px;
+  margin-right: 12px;
 }
