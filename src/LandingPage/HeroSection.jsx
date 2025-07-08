@@ -41,11 +41,6 @@ const HeroSection = () => {
             </p>
             <button className="cta-button" onClick={goToLogin}>Get inspection</button>
           </div>
-
-          <p className="hero-subtitle">
-            In countries with high renewable energy potential like El Salvador, our drone inspections help
-            reduce the carbon footprint by up to 20% annually per system.
-          </p>
         </div>
       </div>
     </div>

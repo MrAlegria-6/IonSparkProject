@@ -80,6 +80,10 @@
   margin-bottom: 1rem;
 }
 
+.hero-subtitle {
+  font-size: 1.3rem;
+}
+
 
 
 .cta-button {
@@ -110,7 +114,7 @@
 }
 
 .hero-caption {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #f0f0f0;
   flex: 1; /* Ocupa el espacio disponible */
   margin: 0;
