@@ -11,10 +11,24 @@
 }
 
 .hero-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* fondo semitransparente para que se vea sobre el bg */
+  backdrop-filter: blur(6px); /* difumina el fondo debajo */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 3rem;
+  z-index: 1000;
 }
+
+/* Para empujar el contenido hacia abajo y no quede debajo del header */
+.hero-container {
+  padding-top: 120px; /* ajusta si el header es más alto */
+}
+
 
 .logo-with-text {
   display: flex;
@@ -66,6 +80,10 @@
   margin-bottom: 1rem;
 }
 
+.hero-subtitle {
+  font-size: 1.3rem;
+}
+
 
 
 .cta-button {
@@ -96,7 +114,7 @@
 }
 
 .hero-caption {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #f0f0f0;
   flex: 1; /* Ocupa el espacio disponible */
   margin: 0;

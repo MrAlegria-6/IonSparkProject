@@ -5,7 +5,7 @@ import { FaSolarPanel, FaWind, FaWater } from 'react-icons/fa';
 const SolutionsSection = () => {
   return (
     <section className="solutions-section">
-      <h2 className="section-title">Our solutions</h2>
+      <h1 className="section-title">Our solutions</h1>
       <p className="section-subtitle">
         We offer for you the best options of renewable energies to save money and the most important thing, help the environment.
       </p>
