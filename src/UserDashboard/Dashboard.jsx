@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell} from 'recharts';
-import {BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe} from 'lucide-react';
+import {BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe, CreditCard, History} from 'lucide-react';
 import IonSparkSection from '../LandingPage/IonSparkSection';
 
 import './Dashboard.css';
@@ -88,8 +88,8 @@ const Dashboard = () => {
                 <span>Profile</span>
               </div>
               <div className="menu-item">
-                <Shield size={20} />
-                <span>Network</span>
+                <History size={20} />
+                <span>Historial</span>
               </div>
               <div className="menu-item">
                 <Bell size={20} />
@@ -104,8 +104,8 @@ const Dashboard = () => {
             <div className="help-section">
               <h3 className="section-title">Help & Support</h3>
               <div className="menu-item">
-                <HelpCircle size={20} />
-                <span>Help</span>
+                <CreditCard size={20} />
+                <span>Plans</span>
               </div>
               <div className="menu-item">
                 <Settings size={20} />

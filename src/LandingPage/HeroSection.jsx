@@ -15,7 +15,7 @@ const HeroSection = () => {
     <div className="hero-container">
       <header className="hero-header">
         <div className="logo-with-text">
-          <img src={logo} alt="IonSpark logo" className="logo-img" />
+          <img src="/Logo.svg" alt="IonSpark logo" className="logo-img" />
           <div className="logo-text">
             <span className="logo-main">IonSpark</span>
             <span className="logo-sub">renewable energies</span>

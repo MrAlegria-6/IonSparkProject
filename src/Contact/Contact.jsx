@@ -4,7 +4,7 @@ import '../UserDashboard/Dashboard';
 import './Contact.css';
 import { FaInstagram, FaFacebookF, FaEnvelope } from 'react-icons/fa';
 
-const Dashboard = () => {
+const Contact = () => {
     return (
         <div className="dashboard">
             {/* Header */}
@@ -143,4 +143,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default Contact;

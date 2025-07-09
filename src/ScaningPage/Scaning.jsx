@@ -2,7 +2,7 @@ import React from 'react';
 import { BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Search, Globe } from 'lucide-react';
 import './Scaning.css';
 
-const Dashboard = () => {
+const Scaning = () => {
     return (
         <div className="dashboard">
             {/* Header */}
@@ -109,4 +109,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default Scaning;

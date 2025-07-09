@@ -5,7 +5,7 @@ import {
 import '../UserDashboard/Dashboard.css';
 import './Notis.css';
 
-const Dashboard = () => {
+const Notis = () => {
   const notificaciones = [
     {
       id: 1,
@@ -134,4 +134,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Notis;

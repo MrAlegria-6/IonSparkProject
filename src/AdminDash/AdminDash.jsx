@@ -4,7 +4,7 @@ import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell
 import { BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Search, Globe } from 'lucide-react';
 import './AdminDash.css';
 
-const Dashboard = () => {
+const AdminDash = () => {
     // Sample data for the line chart
     const lineData = [
         { name: '10', value: 20 },
@@ -227,4 +227,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default AdminDash;
