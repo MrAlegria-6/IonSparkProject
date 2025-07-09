@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell} from 'recharts';
-import {BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe, CreditCard, History} from 'lucide-react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import {
+  LineChart, Line, XAxis, YAxis, ResponsiveContainer,
+  PieChart, Pie, Cell
+} from 'recharts';
+import {
+  BarChart3, Users, Shield, Settings, HelpCircle,
+  LogOut, Bell, Globe, CreditCard, History
+} from 'lucide-react';
 import IonSparkSection from '../LandingPage/IonSparkSection';
-
 import './Dashboard.css';
-
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [lineData, setLineData] = useState([
-    { name: '10', value: 20 },
-    { name: '20', value: 35 },
-    { name: '30', value: 25 },
-    { name: '40', value: 45 },
-    { name: '50', value: 30 },
-    { name: '60', value: 55 },
-    { name: '70', value: 40 },
-    { name: '80', value: 65 },
-    { name: '90', value: 50 },
-    { name: '100', value: 70 },
+    { name: '10', value: 20 }, { name: '20', value: 35 },
+    { name: '30', value: 25 }, { name: '40', value: 45 },
+    { name: '50', value: 30 }, { name: '60', value: 55 },
+    { name: '70', value: 40 }, { name: '80', value: 65 },
+    { name: '90', value: 50 }, { name: '100', value: 70 },
   ]);
 
   const pieData = [
@@ -40,7 +39,6 @@ const Dashboard = () => {
       alert('Acceso denegado. Por favor inicia sesión.');
       navigate('/');
     } else {
-      // Obtener posts protegidos
       fetch('http://127.0.0.1:8000/posts/', {
         headers: {
           Authorization: `Token ${token}`
@@ -49,8 +47,6 @@ const Dashboard = () => {
         .then(res => res.json())
         .then(data => {
           setPosts(data);
-          // Puedes usar los datos si quieres actualizar la gráfica también
-          console.log('Datos recibidos:', data);
         })
         .catch(err => {
           console.error('Error al obtener datos:', err);
@@ -60,7 +56,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      {/* Header */}
       <header className="header">
         <div className="header-content">
           <div className="header-left">
@@ -75,42 +70,47 @@ const Dashboard = () => {
       </header>
 
       <div className="main-layout">
-        {/* Sidebar */}
         <aside className="sidebar">
           <div className="sidebar-content">
             <div className="menu-section">
-              <div className="menu-item active">
+              <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
                 <BarChart3 size={20} />
                 <span>Dashboard</span>
-              </div>
-              <div className="menu-item">
+              </NavLink>
+
+              <NavLink to="/profile" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
                 <Users size={20} />
                 <span>Profile</span>
-              </div>
-              <div className="menu-item">
+              </NavLink>
+
+              <NavLink to="/historial" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
                 <History size={20} />
                 <span>Historial</span>
-              </div>
-              <div className="menu-item">
+              </NavLink>
+
+              <NavLink to="/notifications" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
                 <Bell size={20} />
                 <span>Notifications</span>
-              </div>
-              <div className="menu-item">
+              </NavLink>
+
+              <NavLink to="/settings" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
                 <Settings size={20} />
                 <span>Settings</span>
-              </div>
+              </NavLink>
             </div>
 
             <div className="help-section">
               <h3 className="section-title">Help & Support</h3>
-              <div className="menu-item">
+
+              <NavLink to="/plans" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
                 <CreditCard size={20} />
                 <span>Plans</span>
-              </div>
-              <div className="menu-item">
+              </NavLink>
+
+              <NavLink to="/services" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
                 <Settings size={20} />
                 <span>Services</span>
-              </div>
+              </NavLink>
             </div>
 
             <div className="logout-section">
@@ -125,24 +125,17 @@ const Dashboard = () => {
           </div>
         </aside>
 
-        {/* Main Content */}
         <main className="main-content">
           <div className="page-header">
             <h1 className="page-title">Last Inspection:</h1>
             <div className="page-subtitle">Your results</div>
           </div>
 
-          {/* Chart Section */}
           <div className="chart-container">
             <div className="chart-wrapper">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={lineData}>
-                  <XAxis
-                    dataKey="name"
-                    axisLine={false}
-                    tickLine={false}
-                    tick={{ fill: '#94a3b8', fontSize: 12 }}
-                  />
+                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#94a3b8', fontSize: 12 }} />
                   <YAxis hide />
                   <Line
                     type="monotone"
@@ -157,7 +150,6 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Stats Cards */}
           <div className="stats-grid">
             <div className="stat-card">
               <h3 className="card-title">Overview</h3>
@@ -167,13 +159,8 @@ const Dashboard = () => {
                     <PieChart>
                       <Pie
                         data={pieData}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={35}
-                        outerRadius={60}
-                        dataKey="value"
-                        startAngle={90}
-                        endAngle={450}
+                        cx="50%" cy="50%" innerRadius={35} outerRadius={60}
+                        dataKey="value" startAngle={90} endAngle={450}
                       >
                         {pieData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={entry.color} />
@@ -202,20 +189,14 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Historial Section */}
           <div className="historial-section">
             <h3 className="section-title">Historial</h3>
             <div className="historial-list">
               {historialItems.map((item, index) => (
-                <div key={index} className="historial-item">
-                  {item}
-                </div>
+                <div key={index} className="historial-item">{item}</div>
               ))}
-              {/* Mostrar posts reales (opcional) */}
               {posts.map((post, i) => (
-                <div key={i} className="historial-item">
-
-                </div>
+                <div key={i} className="historial-item">{post.title || 'Post sin título'}</div>
               ))}
             </div>
             <div className="historial-footer">
@@ -224,6 +205,7 @@ const Dashboard = () => {
           </div>
         </main>
       </div>
+
       <IonSparkSection />
     </div>
   );

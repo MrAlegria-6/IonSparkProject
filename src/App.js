@@ -5,6 +5,8 @@ import LoginRegister from './login/login.jsx';
 import Dashboard from './UserDashboard/Dashboard';
 import Notifications from './Notifications/Notis.jsx';
 import Historial from './Historial/Historial.jsx';
+import Contact from "./Contact/Contact.jsx"
+
 import './index.css';
 
 function App() {

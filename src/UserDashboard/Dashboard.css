@@ -121,26 +121,35 @@
 .menu-section {
   margin-bottom: var(--spacing-8);
 }
-
 .menu-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-3);
-  padding: var(--spacing-3);
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   border-radius: var(--border-radius-lg);
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin-bottom: var(--spacing-2);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin-bottom: 0.5rem;
+  color: var(--color-slate-300);
+  text-decoration: none;
 }
 
-.menu-item:hover {
-  background-color: var(--color-slate-700);
+.menu-item svg {
+  color: inherit;
 }
 
+.menu-item span {
+  font-weight: 500;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.menu-item:hover,
 .menu-item.active {
   background-color: var(--color-slate-700);
   color: var(--color-emerald-400);
 }
+
 
 .help-section {
   margin-bottom: var(--spacing-8);
