@@ -66,10 +66,10 @@ body {
 
 /* Aquí aumenté el tamaño de la imagen para que se vea más grande */
 .info-childs img {
-  width: 350px;  /* Tamaño fijo, ajusta si quieres */
+  width: 160px;  /* Tamaño fijo, ajusta si quieres */
   max-width: none; /* Quitar límite */
   height: auto;
-  margin: 0 auto 20px;
+  margin: 0 auto 15px;
   display: block;
 }
 
