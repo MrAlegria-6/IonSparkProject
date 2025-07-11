@@ -211,25 +211,17 @@ const Historial = () => {
             <div className="dashboard">
                 {/* Header */}
                 <header className="header">
-                    <div className="header-content">
-                        <div className="header-left">
-                            <div className="logo">
-                                <div className="logo-icon">
-                                    <Globe size={20} />
+                                <div className="header-content">
+                                    <div className="header-left">
+                                        <div className="logo">
+                                            <div className="logo-icon">
+                                                <Globe size={20} />
+                                            </div>
+                                            <span className="logo-text">IonSpark</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <span className="logo-text">IonSpark</span>
-                            </div>
-                        </div>
-                        <div className="header-right">
-                            <nav className="nav">
-                                <a href="#" className="nav-link active">Home</a>
-                                <a href="#" className="nav-link">Dashboard</a>
-                                <a href="#" className="nav-link">Results</a>
-                                <a href="#" className="nav-link">Contact</a>
-                            </nav>
-                        </div>
-                    </div>
-                </header>
+                            </header>
 
                 {/* Main layout */}
                 <div className="main-layout">

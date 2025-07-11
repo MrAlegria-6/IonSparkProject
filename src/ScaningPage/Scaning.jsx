@@ -11,20 +11,14 @@ const Scaning = () => {
                     <div className="header-left">
                         <div className="logo">
                             <div className="logo-icon">
-                                <Globe size={20} />
+                                <img src="/logo.svg" alt="Logo" style={{ width: '24px', height: '24px' }} />
                             </div>
                             <span className="logo-text">IonSpark</span>
                         </div>
                     </div>
-                    <div className="header-right">
-                        <nav className="nav">
-                            <a href="#" className="nav-link active">Home</a>
-                            <a href="#" className="nav-link">Dashboard</a>
-                            <a href="#" className="nav-link">Results</a>
-                        </nav>
-                    </div>
                 </div>
             </header>
+
             <div className="stat-card">
                 {/* Sidebar */}
                 <aside className="sidebar">
@@ -77,13 +71,13 @@ const Scaning = () => {
                         </div>
                     </div>
                 </aside>
-                
-                    <iframe
-                        src="https://screenmirroring.app/receiver#google_vignette"
-                        width="1000"
-                        height="600"
-                    ></iframe>
-               
+
+                <iframe
+                    src="https://screenmirroring.app/receiver#google_vignette"
+                    width="1000"
+                    height="600"
+                ></iframe>
+
             </div>
 
             {/* Footer */}
