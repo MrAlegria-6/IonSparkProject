@@ -18,14 +18,6 @@ const Contact = () => {
                             <span className="logo-text">IonSpark</span>
                         </div>
                     </div>
-                    <div className="header-right">
-                        <nav className="nav">
-                            <a href="#" className="nav-link active">Home</a>
-                            <a href="#" className="nav-link">Dashboard</a>
-                            <a href="#" className="nav-link">Results</a>
-                            <a href="#" className="nav-link">Contact</a>
-                        </nav>
-                    </div>
                 </div>
             </header>
 

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell} from 'recharts';
-import {BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe, CreditCard, History} from 'lucide-react';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { BarChart3, Users, Settings, LogOut, Bell, CreditCard, History, Mail } from 'lucide-react';
 import IonSparkSection from '../LandingPage/IonSparkSection';
-
 import './Dashboard.css';
 
 
@@ -66,13 +65,14 @@ const Dashboard = () => {
           <div className="header-left">
             <div className="logo">
               <div className="logo-icon">
-                <Globe size={20} />
+                <img src="/logo.svg" alt="Logo" style={{ width: '24px', height: '24px' }} />
               </div>
               <span className="logo-text">IonSpark</span>
             </div>
           </div>
         </div>
       </header>
+
 
       <div className="main-layout">
         {/* Sidebar */}
@@ -108,8 +108,8 @@ const Dashboard = () => {
                 <span>Plans</span>
               </div>
               <div className="menu-item">
-                <Settings size={20} />
-                <span>Services</span>
+                <Mail size={20} />
+                <span>Contact</span>
               </div>
             </div>
 
