@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import {
-  BarChart3, Users, History, Bell, Settings, CreditCard,
-  Mail, LogOut, User, Shield, Palette, Save, Check,
-  Sun, Moon, Monitor
+  User, Palette, Bell, Shield, Save, Check, Sun, Moon, Monitor
 } from 'lucide-react';
 import "./Settings.css";
 
@@ -51,58 +49,10 @@ const SettingsPage = () => {
       </header>
 
       <div className="main-layout">
-        {/* Sidebar */}
-        <aside className="sidebar">
-          <div className="sidebar-content">
-            <div className="menu-section">
-              <div className="menu-item">
-                <BarChart3 size={20} />
-                <span>Dashboard</span>
-              </div>
-              <div className="menu-item active">
-                <Users size={20} />
-                <span>Profile</span>
-              </div>
-              <div className="menu-item">
-                <History size={20} />
-                <span>Historial</span>
-              </div>
-              <div className="menu-item">
-                <Bell size={20} />
-                <span>Notifications</span>
-              </div>
-              <div className="menu-item">
-                <Settings size={20} />
-                <span>Settings</span>
-              </div>
-            </div>
+        {/* Sidebar removed */}
 
-            <div className="help-section">
-              <h3 className="section-title">Help & Support</h3>
-              <div className="menu-item">
-                <CreditCard size={20} />
-                <span>Plans</span>
-              </div>
-              <div className="menu-item">
-                <Mail size={20} />
-                <span>Contact</span>
-              </div>
-            </div>
-
-            <div className="logout-section">
-              <div className="menu-item" onClick={() => {
-                localStorage.removeItem('token');
-                window.location.href = '/';
-              }}>
-                <LogOut size={20} />
-                <span>Logout</span>
-              </div>
-            </div>
-          </div>
-        </aside>
-
-        {/* Contenido principal: Settings */}
-        <main className="main-content">
+        {/* Main Content */}
+        <main className="main-content" style={{ width: '100%' }}>
           <div className="page-header">
             <div className="settings-header">
               <h1 className="page-title">Configuración</h1>

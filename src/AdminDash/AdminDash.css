@@ -381,3 +381,9 @@
   }
   
 }
+
+.admin-dash-container {
+  background-color: var(--color-slate-900);
+  min-height: 100vh;
+  color: var(--color-white);
+}

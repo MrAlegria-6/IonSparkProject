@@ -1,8 +1,6 @@
 import React from "react";
 import '../results/results.css';
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
-
-
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -31,322 +29,171 @@ ChartJS.register(
     BarElement,
     BarController
 );
+
+// --- Datos realistas ---
 const barChartData = {
-
-    labels: ['Solar Irradiance', 'Cloud Coverage', 'Temperature (Avg)', 'Wind Speed'],
-
-    datasets: [
-
-        {
-
-            label: 'Environmental Metrics',
-
-            data: [6.4, 22, 21, 4.8], // Sample data based on your text (adjust as needed)
-
-            backgroundColor: [
-
-                '#2E5F99',
-
-                'rgba(54, 162, 235, 0.7)',
-
-                '#2C8BB9',
-
-                '#41B8D6',
-
-            ],
-
-            borderColor: [
-
-                '#2E5F99',
-
-                'rgba(54, 162, 235, 1)',
-
-                '#2C8BB9',
-
-                '#41B8D6',
-
-            ],
-
-            borderWidth: 1,
-
-            borderRadius: 10, // This creates the rounded corners
-
-            borderSkipped: false, // Ensures all corners are rounded
-
-        },
-
-    ],
-
+    labels: ['Irradiancia Solar', 'Cobertura Nublada', 'Temperatura', 'Viento', 'CO₂', 'Humedad'],
+    datasets: [{
+        label: 'Datos Ambientales',
+        data: [6.4, 22, 21, 4.8, 412, 55],
+        backgroundColor: ['#2E5F99', '#2C8BB9', '#41B8D6', '#4BC0C0', '#FFC107', '#00BCD4'],
+        borderRadius: 10
+    }]
 };
 
 const barChartOptions = {
-
     responsive: true,
-
     plugins: {
-
-        legend: {
-
-            display: false, // Hides the legend for a cleaner look
-
-        },
-
-        title: {
-
-            display: true,
-
-            text: 'Key Environmental Metrics', // Chart title
-
-        },
-
+        legend: { display: false },
+        title: { display: true, text: 'Métricas del Sitio' },
         tooltip: {
-
             callbacks: {
-
-                label: function (context) {
-
-                    let label = context.dataset.label || '';
-
-                    if (label) {
-
-                        label += ': ';
-
+                label: (context) => {
+                    switch (context.label) {
+                        case 'Irradiancia Solar': return ` ${context.parsed.y} kWh/m²/día`;
+                        case 'Cobertura Nublada': return ` ${context.parsed.y}%`;
+                        case 'Temperatura': return ` ${context.parsed.y} °C`;
+                        case 'Viento': return ` ${context.parsed.y} m/s`;
+                        case 'CO₂': return ` ${context.parsed.y} ppm`;
+                        case 'Humedad': return ` ${context.parsed.y} %`;
+                        default: return context.parsed.y;
                     }
-
-                    if (context.parsed.y !== null) {
-
-                        // Adds units to the tooltip for clarity
-
-                        if (context.label === 'Solar Irradiance') return label + context.parsed.y + ' kWh/m²/day';
-
-                        if (context.label === 'Cloud Coverage') return label + context.parsed.y + '%';
-
-                        if (context.label === 'Temperature (Avg)') return label + context.parsed.y + '°C';
-
-                        if (context.label === 'Wind Speed') return label + context.parsed.y + ' m/s';
-
-                        return label + context.parsed.y;
-
-                    }
-
-                    return label;
-
                 }
-
             }
-
         }
-
     },
-
     scales: {
-
-        x: {
-
-            beginAtZero: true,
-
-            grid: {
-
-                display: false // Hides x-axis grid lines
-
-            }
-
-        },
-
-        y: {
-
-            beginAtZero: true,
-
-            grid: {
-
-                display: true // Shows y-axis grid lines
-
-            },
-
-        },
-
-    },
-
-};
-
-const donutChartData = {
-    labels: ['Flat', 'Hills', 'Valley', 'Others'],
-    datasets: [
-        {
-            label: 'Topography Distribution',
-            data: [50, 20, 15, 15],
-            backgroundColor: ['#2E5F99', '#2C8BB9', '#41B8D6', '#4BC0C0'],
-            hoverBackgroundColor: ['#FF5A5F', '#5A9BD4', '#FFCA5C', '#48B2B2']
-        }
-    ]
-};
-
-const donutChartOptions = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
-        },
-        tooltip: {
-            callbacks: {
-                label: function (tooltipItem) {
-                    return tooltipItem.raw + '%';
-                }
-            }
-        }
+        x: { grid: { display: false } },
+        y: { beginAtZero: true }
     }
 };
 
-
-const lineChartData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-    datasets: [
-        {
-            label: 'Energy Production (kWh)',
-            data: [120, 150, 180, 57, 200, 78, 154, 254, 198, 95, 249, 198],
-            borderColor: '#9DCD66',
-            backgroundColor: 'rgba(62, 149, 205, 0.2)',
-            pointBackgroundColor: '#9DCD66',
-            tension: 0.4,
-            fill: true,
-        },
-    ],
+const donutData = {
+    labels: ['Plano', 'Colinas', 'Valle', 'Otros'],
+    datasets: [{
+        data: [50, 20, 15, 15],
+        backgroundColor: ['#2E5F99', '#2C8BB9', '#41B8D6', '#4BC0C0']
+    }]
 };
 
-const lineChartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-        legend: {
-            display: true,
-            position: 'top',
-        },
-        title: {
-            display: false,
-        },
-    },
-    scales: {
-        y: {
-            beginAtZero: true,
-        },
-    },
+const lineData = {
+    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+    datasets: [{
+        label: 'Producción Estimada (kWh)',
+        data: [120, 150, 180, 57, 200, 78, 154, 254, 198, 95, 249, 198],
+        borderColor: '#9DCD66',
+        backgroundColor: 'rgba(157, 205, 102, 0.3)',
+        tension: 0.3,
+        fill: true
+    }]
 };
 
 const Results = () => {
     return (
-        <div className="results">
-            <header className="navbar">
-                <div className="logo">
-                    <img src="/assets/logo.png" alt="IonSpark Logo" />
-                    <div class="logo-text">
+        <div className="results-main">
+            <section className="intro-section">
+                <h2>Resumen de Escaneo Energético</h2>
+                <p>
+                    Esta visualización muestra datos capturados por IonXplorer en el último escaneo. A partir de estos datos,
+                    nuestro sistema calcula el potencial energético, condiciones técnicas y recomendaciones específicas.
+                </p>
+            </section>
+
+            <section className="charts-section">
+                <div className="chart-card">
+                    <h3>Producción Energética Estimada</h3>
+                    <div className="chart-wrapper">
+                        <Line data={lineData} options={{ responsive: true }} />
                     </div>
                 </div>
-                <nav className="nav-links">
-                    <a href="/">Home</a>
-                    <a href="/services">Services</a>
-                    <a href="/results">Results</a>
-                    <a href="/contact">Contact</a>
-                </nav>
-            </header>
-            <div id="particles-js"></div>
 
-            <section className="results-section">
-                <div className="card chart-card">
-                    <p class="top-left-text">Your results</p>
-                    <h4>Monthly Energy Production</h4>
-                    <div className="chart-container">
-                        <Line data={lineChartData} options={lineChartOptions} />
+                <div className="chart-card">
+                    <h3>Métricas Ambientales</h3>
+                    <div className="chart-wrapper">
+                        <Bar data={barChartData} options={barChartOptions} />
+                    </div>
+                </div>
+
+                <div className="chart-card small-chart-card">
+                    <h3>Topografía del Terreno</h3>
+                    <div className="chart-wrapper small-chart">
+                        <Doughnut data={donutData} options={{ responsive: true, maintainAspectRatio: true }} />
                     </div>
                 </div>
             </section>
 
-            <section className="data-section">
-                <h3>Data analysis:</h3>
-                <div className="data-cards top-row">
-                    <div className="cardchart1">
-                        <h4>Topography of the terrain</h4>
-                        <Doughnut data={donutChartData} options={donutChartOptions} />
-                    </div>
-
-
-                    <div className="cardchart2">
-                        <h4>Environmental and solar data</h4>
-                        <p><b>Average Solar Irradiance:</b> 6.4 kWh/m²/day</p>
-                        <p><b>Cloud Coverage:</b> 22%</p>
-                        <p><b>Temperature Range:</b> 8°C – 34°C</p>
-                        <p><b>Wind Speed:</b> 4.8 m/s</p>
-                    </div>
-
-                </div>
-
-                <div className="data-cards text-grid">
-                    <div className="card1">
-                        <h4>Site location information:</h4>
-                        <p><b>Project Name:</b> Solar Feasibility – Green Valley Plot</p>
-                        <p><b>Coordinates:</b> 36.7783° N, 119.4179° W</p>
-                        <p><b>Total Area:</b> 15 hectares (150,000 m²)</p>
-                        <p><b>Terrain Slope:</b> 5–12% (South-facing)</p>
-                        <p><b>Elevation:</b> 450 m above sea level</p>
-                    </div>
-
-                    <div className="cardchart3">
-                        <h4>Environmental Conditions</h4>
-                        <Bar data={barChartData} options={barChartOptions}></Bar>
-                    </div>
-
-                    <div className="cardchart4">
-                        <h4>Technical analysis</h4>
-                        <p><b>Usable Area:</b> 12.5 hectares</p>
-                        <p><b>Shading Zones:</b> 1.2 hectares</p>
-                        <p><b>Panel Tilt:</b> 25°</p>
-                        <p><b>Estimated Production:</b> 2.1 GWh/year</p>
-                        <p><b>Distance to Grid:</b> 1.4 km</p>
-                    </div>
-
-                    <div className="cardchart5">
-                        <h4>Economic Fasibility</h4>
-                        <p><b>Cost:</b> $1.75 million</p>
-                        <p><b>ROI:</b> 6.2 years</p>
-                        <p><b>Savings:</b> $275,000/year</p>
-                        <p><b>Incentives:</b> ITC (26%)</p>
-                        <p><b>Comparison:</b> 3.8x more cost-effective than diesel</p>
-                    </div>
-
-                    <div className="cardchart7">
-                        <h4>Recommendations</h4>
+            <section className="analysis-section">
+                <div className="analysis-grid">
+                    <div className="analysis-card">
+                        <h4>Ubicación</h4>
                         <ul>
-                            <li>Install 2.5 MW solar system</li>
-                            <li>Monitor vegetation growth</li>
-                            <li>Use MPPT string inverters</li>
-                            <li>Install peak-hour battery</li>
+                            <li><b>Coordenadas:</b> 13.7° N, 89.2° O</li>
+                            <li><b>Altura:</b> 450 m</li>
+                            <li><b>Pendiente:</b> 5–12%</li>
+                        </ul>
+                    </div>
+
+                    <div className="analysis-card">
+                        <h4>Producción y Diseño</h4>
+                        <ul>
+                            <li><b>Potencial:</b> 2.1 GWh/año</li>
+                            <li><b>Tipo sugerido:</b> Solar fotovoltaico</li>
+                            <li><b>Paneles recomendados:</b> Monocristalinos, 2.5 MW</li>
+                        </ul>
+                    </div>
+
+                    <div className="analysis-card">
+                        <h4>Factibilidad Económica</h4>
+                        <ul>
+                            <li><b>Retorno estimado:</b> 6.2 años</li>
+                            <li><b>Ahorros anuales:</b> $275,000</li>
+                            <li><b>Comparativa:</b> 3.8x más eficiente que diésel</li>
+                        </ul>
+                    </div>
+
+                    <div className="analysis-card">
+                        <h4>Clima Extremo</h4>
+                        <ul>
+                            <li><b>Temp. Máxima registrada:</b> 38°C</li>
+                            <li><b>Temp. Mínima registrada:</b> 9°C</li>
+                            <li><b>Riesgo de tormentas:</b> Bajo</li>
+                            <li><b>Meses críticos:</b> Septiembre - Octubre</li>
+                        </ul>
+                    </div>
+
+                    <div className="analysis-card">
+                        <h4>Viabilidad Técnica</h4>
+                        <ul>
+                            <li><b>Distancia a red eléctrica:</b> 1.2 km</li>
+                            <li><b>Accesibilidad del sitio:</b> Alta</li>
+                            <li><b>Zonas de sombra:</b> 1.2 ha</li>
+                            <li><b>Superficie utilizable:</b> 12.5 ha</li>
+                        </ul>
+                    </div>
+
+                    <div className="analysis-card">
+                        <h4>Impacto Ambiental Estimado</h4>
+                        <ul>
+                            <li><b>CO₂ evitado por año:</b> 1,350 toneladas</li>
+                            <li><b>Equivalente a:</b> 290 autos fuera de circulación</li>
+                            <li><b>Beneficio local:</b> Disminución de dependencia al diésel</li>
+                        </ul>
+                    </div>
+
+                    <div className="analysis-card recommendations-card">
+                        <h4>Recomendaciones</h4>
+                        <ul>
+                            <li>Inversores con MPPT</li>
+                            <li>Monitoreo de vegetación</li>
+                            <li>Considerar batería complementaria</li>
+                            <li>Posible hibridación con eólica</li>
                         </ul>
                     </div>
                 </div>
-            </section >
-            <footer className="footer">
-                <div className="footer-info">
-                    <div>
-                        <h4>IonSpark</h4>
-                        <p>renewable energies</p>
-                        <p>@IonSpark_sv</p>
-                        <p>ion.spark12@gmail.com</p>
-                    </div>
-                    <div>
-                        <h4>Links</h4>
-                        <ul>
-                            <li>Contact us</li>
-                            <li>Quote price</li>
-                            <li>Energies</li>
-                            <li>Services</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="footer-map">
-                    <img src="/assets/mapa.png" alt="Map" />
-                </div>
-            </footer>
-
+            </section>
         </div>
     );
 };
+
 export default Results;
+
