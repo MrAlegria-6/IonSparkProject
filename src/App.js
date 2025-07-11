@@ -5,6 +5,7 @@ import LoginRegister from './login/login.jsx';
 import Dashboard from './UserDashboard/Dashboard';
 import Notifications from './Notifications/Notis.jsx';
 import Historial from './Historial/Historial.jsx';
+import UserProfile from './UserProfile/UserProfile';
 import './index.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/historial" element={<Historial />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </Router>
   );
