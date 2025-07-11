@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import {
-  BarChart3, Users, Shield, Settings, HelpCircle, LogOut, Bell, Globe, CreditCard,
-  ChevronLeft, ChevronRight, Crown, Gem, Rocket, Check
+  Globe, Gem, Crown, Rocket, Check, ChevronLeft, ChevronRight
 } from 'lucide-react';
-
 import './Plans.css';
 
 const Plans = () => {
@@ -14,37 +12,53 @@ const Plans = () => {
       id: 1,
       icon: <Gem className="icon" />,
       type: "Basic",
-      price: "$79",
-      description: "Most popular plan",
-      features: Array(5).fill("Most popular plan")
+      price: "$49",
+      description: "Ideal para usuarios individuales",
+      badge: "Mensual",
+      features: [
+        "1 usuario",
+        "5 reportes al mes",
+        "Soporte estándar",
+        "Acceso a mapas",
+        "Escaneos manuales"
+      ]
     },
     {
       id: 2,
       icon: <Crown className="icon" />,
       type: "Premium",
       price: "$79",
-      description: "Most popular plan",
-      badge: "Per Month",
-      features: Array(6).fill("Most popular plan"),
+      description: "Recomendado para empresas medianas",
+      badge: "Mensual",
+      features: [
+        "5 usuarios",
+        "Escaneos ilimitados",
+        "Soporte prioritario",
+        "Mapas avanzados",
+        "Predicciones solares",
+        "Exportación de datos"
+      ],
       featured: true
     },
     {
       id: 3,
       icon: <Rocket className="icon" />,
       type: "Pro",
-      price: "$79",
-      description: "Most popular plan",
-      features: Array(5).fill("Most popular plan")
+      price: "$129",
+      description: "Para proyectos a gran escala",
+      badge: "Mensual",
+      features: [
+        "Usuarios ilimitados",
+        "Escaneo con dron automático",
+        "API disponible",
+        "Soporte 24/7",
+        "Predicciones personalizadas"
+      ]
     }
   ];
 
-  const nextPlan = () => {
-    setCurrentIndex((prev) => (prev + 1) % plans.length);
-  };
-
-  const prevPlan = () => {
-    setCurrentIndex((prev) => (prev - 1 + plans.length) % plans.length);
-  };
+  const nextPlan = () => setCurrentIndex((prev) => (prev + 1) % plans.length);
+  const prevPlan = () => setCurrentIndex((prev) => (prev - 1 + plans.length) % plans.length);
 
   return (
     <div className="dashboard">
@@ -53,72 +67,22 @@ const Plans = () => {
         <div className="header-content">
           <div className="header-left">
             <div className="logo">
-              <div className="logo-icon">
-                <Globe size={20} />
-              </div>
+              <div className="logo-icon"><Globe size={20} /></div>
               <span className="logo-text">IonSpark</span>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Layout */}
+      {/* Main content */}
       <div className="main-layout">
-        {/* Sidebar */}
-        <aside className="sidebar">
-          <div className="sidebar-content">
-            <div className="menu-section">
-              <div className="menu-item">
-                <BarChart3 size={20} />
-                <span>Dashboard</span>
-              </div>
-              <div className="menu-item">
-                <Users size={20} />
-                <span>Profile</span>
-              </div>
-              <div className="menu-item">
-                <Shield size={20} />
-                <span>Network</span>
-              </div>
-              <div className="menu-item">
-                <Bell size={20} />
-                <span>Notifications</span>
-              </div>
-              <div className="menu-item">
-                <Settings size={20} />
-                <span>Settings</span>
-              </div>
-            </div>
-
-            <div className="help-section">
-              <h3 className="section-title">Help & Support</h3>
-              <div className="menu-item active">
-                <CreditCard size={20} />
-                <span>Plans</span>
-              </div>
-              <div className="menu-item">
-                <HelpCircle size={20} />
-                <span>Help</span>
-              </div>
-            </div>
-
-            <div className="logout-section">
-              <div className="menu-item">
-                <LogOut size={20} />
-                <span>Logout</span>
-              </div>
-            </div>
-          </div>
-        </aside>
-
-        {/* Main Content */}
-        <main className="main-content">
+        <main className="main-content" style={{ width: '100%' }}>
           <div className="carousel-container">
-            <button className="nav-button left" onClick={prevPlan}>
+            <button className="nav-button left" onClick={prevPlan} aria-label="Plan anterior">
               <ChevronLeft className="chevron" />
             </button>
 
-            <button className="nav-button right" onClick={nextPlan}>
+            <button className="nav-button right" onClick={nextPlan} aria-label="Plan siguiente">
               <ChevronRight className="chevron" />
             </button>
 
@@ -138,15 +102,12 @@ const Plans = () => {
                   <div key={plan.id} className={cardClass} onClick={() => setCurrentIndex(index)}>
                     <div className={`card-inner ${plan.featured ? 'featured' : ''}`}>
                       {plan.badge && <div className="badge">{plan.badge}</div>}
-
                       <div className={`icon-container ${plan.featured ? 'highlight' : ''}`}>
                         {plan.icon}
                       </div>
-
                       <div className="type">{plan.type}</div>
                       <div className="price">{plan.price}</div>
                       <div className="description">{plan.description}</div>
-
                       <ul className="features">
                         {plan.features.map((f, i) => (
                           <li key={i}>
@@ -155,7 +116,6 @@ const Plans = () => {
                           </li>
                         ))}
                       </ul>
-
                       <button className={`start-button ${plan.featured ? 'highlight' : ''}`}>
                         Get Started
                       </button>

@@ -242,3 +242,10 @@
         text-align: center;
     }
 }
+
+.contact-container {
+    background-color: #0B1B2B;
+    min-height: 100vh;
+    color: white;
+    width: 100%;
+}

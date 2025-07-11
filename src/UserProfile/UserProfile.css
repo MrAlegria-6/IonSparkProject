@@ -116,3 +116,12 @@
   flex-wrap: wrap;
   gap: 12px;
 }
+
+/* Asegura que se alinee bien dentro del layout */
+.profile-wrapper {
+  flex: 1;
+  padding: 40px;
+  background-color: #0f172a;
+  color: #ffffff;
+  min-height: 100vh;
+}

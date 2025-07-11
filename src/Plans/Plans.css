@@ -6,6 +6,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--color-slate-900);
+  color: var(--color-white);
 }
 
 .cards-wrapper {
@@ -20,7 +22,7 @@
   position: absolute;
   width: 320px;
   height: 550px;
-  transition: all 0.7s ease;
+  transition: all 0.7s ease, opacity 0.5s ease;
   cursor: pointer;
   opacity: 0.6;
   transform: scale(0.9);
@@ -151,7 +153,8 @@
   text-transform: uppercase;
   color: white;
   background: rgba(255, 255, 255, 0.2);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 14px rgba(255,255,255,0.1);
 }
 
 .start-button:hover {
@@ -160,6 +163,11 @@
 
 .start-button.highlight {
   background: linear-gradient(45deg, #9DCD66, #7BB555);
+}
+
+.start-button.highlight:hover {
+  background: linear-gradient(45deg, #7BB555, #9DCD66);
+  box-shadow: 0 0 15px #9DCD66;
 }
 
 .nav-button {
@@ -208,61 +216,37 @@
 }
 
 .indicator.active {
-  background: #374151;
+  background: #9DCD66;
+  box-shadow: 0 0 6px #9DCD66;
 }
 
 .info {
   text-align: center;
   margin-top: 1.5rem;
-  color: #374151;
+  color: #d1d5db;
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-button {
+    display: none;
+  }
 
-/* Sidebar */
-.sidebar {
-  width: 16rem;
-  background-color: var(--color-slate-800);
-  min-height: calc(100vh - 73px);
-  border-right: 1px solid var(--color-slate-700);
-}
+  .cards-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
 
-.sidebar-content {
-  padding: var(--spacing-6);
-}
+  .card {
+    position: static;
+    transform: scale(1);
+    opacity: 1;
+    margin-bottom: 2rem;
+  }
 
-.menu-section {
-  margin-bottom: var(--spacing-8);
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
-  padding: var(--spacing-3);
-  border-radius: var(--border-radius-lg);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin-bottom: var(--spacing-2);
-}
-
-.menu-item:hover {
-  background-color: var(--color-slate-700);
-}
-
-.menu-item.active {
-  background-color: var(--color-slate-700);
-  color: var(--color-emerald-400);
-}
-
-.help-section {
-  margin-bottom: var(--spacing-8);
-}
-
-.section-title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-slate-400);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--spacing-4);
+  .card.next,
+  .card.prev,
+  .card.hidden {
+    display: none;
+  }
 }

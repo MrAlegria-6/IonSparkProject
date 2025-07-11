@@ -1,14 +1,69 @@
+:root {
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-300: #cbd5e1;
+  --color-white: #ffffff;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --border-radius: 0.5rem;
+}
+
+/* Layout general */
+.main-layout {
+  display: flex;
+  width: 100%;
+  background-color: var(--color-slate-900);
+}
+
+.main-content {
+  flex: 1;
+  padding: var(--spacing-8);
+  color: var(--color-white);
+}
+
+/* Topbar sencilla */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-slate-800);
+  padding: var(--spacing-4);
+  border-bottom: 1px solid var(--color-slate-700);
+  margin-bottom: var(--spacing-6);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+/* Notis específicos */
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-6);
+}
+
 .notis-card-list {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .notis-card {
-  background: ##777;;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  background-color: var(--color-slate-800);
+  border: 1px solid var(--color-slate-700);
+  border-radius: var(--border-radius);
   padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -16,8 +71,8 @@
 }
 
 .notis-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .notis-avatar {
@@ -27,42 +82,24 @@
   object-fit: cover;
 }
 
-.notis-card-content h3 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.notis-card-content p {
-  font-size: 14px;
-  color: #555;
-}
-
 .notis-card-content {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.notis-card-content .notis-description {
-  color: #777;
-}
-
-.notis-card-content .notis-title {
-  font-size: 16px;
-  font-weight: bold;
+.notis-icon {
   margin-bottom: 8px;
 }
 
-.notis-card-content .notis-description {
-  font-size: 14px;
-  color: #616161;
+.notis-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: var(--color-white);
 }
 
-.notis-card .icon-renewable {
-  font-size: 24px;
-  margin-right: 12px;
-}
-
-.notis-card-content .notis-icon {
-  font-size: 20px;
-  margin-right: 12px;
+.notis-description {
+  font-size: 0.95rem;
+  color: var(--color-slate-300);
 }
