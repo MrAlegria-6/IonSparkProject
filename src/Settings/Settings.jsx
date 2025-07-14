@@ -34,20 +34,6 @@ const SettingsPage = () => {
 
   return (
     <div className="dashboard">
-      {/* Header */}
-      <header className="header">
-        <div className="header-content">
-          <div className="header-left">
-            <div className="logo">
-              <div className="logo-icon">
-                <img src="/logo.svg" alt="Logo" style={{ width: '24px', height: '24px' }} />
-              </div>
-              <span className="logo-text">IonSpark</span>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="main-layout">
         {/* Sidebar removed */}
 

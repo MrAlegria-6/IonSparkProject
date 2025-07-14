@@ -105,6 +105,9 @@ const Dashboard = () => {
         <div className="stat-card">
           <div className="stat-value primary">85%</div>
           <div className="stat-label">Performance</div>
+          <div className="stat-description">
+            El análisis muestra que el 85% del proceso fue exitoso en la última ejecución.
+          </div>
         </div>
 
         <div className="stat-card">
